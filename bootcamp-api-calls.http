@@ -1,0 +1,29 @@
+//WordGame API
+http://localhost:3011/api/Wordgame?codex
+
+//Total Phone Bill 
+POST http://localhost:3011/api/phonebill/total
+Content-Type: application/json
+{
+    "bill": "call,sms,call"
+}
+
+//Prices for sms and calls
+GET http://localhost:3011/api/phonebill/prices  
+
+
+//Set price Sms and Call
+POST http://localhost:3011/api/phonebill/price
+Content-Type: application/json
+{
+  "type": "sms",
+  "price" : 2.85
+}
+
+//Enough airtime
+POST http://localhost:3011/api/enough
+Content-Type: application/json
+{
+   "usage": "call,sms,call",
+   "available" : 54
+}

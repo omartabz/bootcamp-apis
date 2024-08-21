@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootcamp API Widgets</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="./alpineData.js"></script>
+    <script defer src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <!-- <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+</head>
+
+<body x-data="BootcampWidgetAPI">
+    <h1>Bootcamp APIs</h1>
+    <!-- Word Game -->
+    <h1>Word Game Widget</h1>
+    <div>
+        <input type="text" x-model="sentence" id="text" placeholder="Enter Your Sentence">
+        <button x-on:click="checkSentence()">Return</button>
+    </div>
+    <div>Longest Word: <span x-text="longestWord"></span></div>
+    <div>Shortest Word: <span x-text="shortestWord"></span></div>
+    <div>Word Length: <span x-text="wordLengths"></span></div>
+
+    <!-- Total Phone Bill  -->
+    <h1>Phone Bill Calculator</h1>
+    <input type="text" id="billReturn" placeholder="Enter Amount Used">
+    <button x-on:click="phonebill()">Calculate</button>
+    <p id="total-cost"></p>
+    <li>Call: R <span id="call-price">2.75</span></li>
+    <li>SMS: R <span id="sms-price">0.65</span></li>
+
+    <!-- Enough Airtime -->
+    <h1>Enough Airtime</h1>
+    <div x-show="billMessage.length > 0" class="message" x-text="billMessage">
+        Your bill message will be displayed here....
+    </div>
+    <label for="usage">Enter projected usage: </label>
+    <input type="text" placeholder="call,sms,data" x-model="usage" id="usage"><br><br>
+    <label for="available">Enter airtime available: </label>
+    <input type="number" placeholder="R0.00" x-model="available" id="available" min="0"
+        oninput="this.value = Math.abs(this.value)">
+    </div>
+    <button x-on:click="enoughAirtime()">Generate Bill</button>
+
+</body>
+
+</html>
